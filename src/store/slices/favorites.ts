@@ -42,19 +42,15 @@ const favorites = createSlice({
       builder
          .addCase(setFavorite.fulfilled, (state, action) => {
             state.favoritesId = action.payload;
-            console.log(state.favoritesId);
          })
          .addCase(getFavoritesId.fulfilled, (state, action) => {
             state.favoritesId = action.payload;
-            console.log(state.favoritesId);
          })
          .addCase(getFavoritesLofts.pending, (state) => {
             state.status = 'loading';
          })
          .addCase(getFavoritesLofts.fulfilled, (state, action) => {
             state.favoritesLofts = action.payload;
-
-            console.log(state.favoritesLofts);
          })
          .addCase(getFavoritesLofts.rejected, (state) => {
             state.status = 'failed';
@@ -63,7 +59,6 @@ const favorites = createSlice({
          .addCase(logoutUser.fulfilled, (state) => {
             state.favoritesId = [];
             state.favoritesLofts = [];
-            console.log(state.favoritesId);
          });
    },
 });

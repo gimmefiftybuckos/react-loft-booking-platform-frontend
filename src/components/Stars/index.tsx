@@ -6,7 +6,7 @@ export const Stars = ({
    averageRating,
    size,
 }: {
-   averageRating: string | undefined;
+   averageRating: number | string | undefined;
    size?: boolean;
 }) => {
    if (averageRating === undefined) {

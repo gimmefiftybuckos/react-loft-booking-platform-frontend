@@ -4,6 +4,7 @@ import { getCommentsApi, setCommentApi } from '../../services/api';
 
 type TCommentsSlice = {
    comments: ICommentsGet[];
+   userComment: Partial<ICommentsGet>;
    loftId: string;
    userRating: number;
    userReview: string;
@@ -12,6 +13,7 @@ type TCommentsSlice = {
 
 const initialState: TCommentsSlice = {
    comments: [],
+   userComment: {},
    loftId: '',
    userRating: -1,
    userReview: '',
@@ -38,11 +40,22 @@ const comments = createSlice({
       setReview: (state, action) => {
          state.userReview = action.payload;
       },
+      resetCommentState: (state) => {
+         state.userRating = -1;
+         state.userReview = '';
+      },
+      setUserComment: (state, action) => {
+         state.userComment = action.payload;
+      },
+      resetComments: (state) => {
+         state.comments = [];
+      },
    },
    extraReducers: (builder) => {
       builder
          .addCase(setComment.fulfilled, (state, action) => {
             if (action.payload) {
+               state.userComment = action.payload;
                state.comments.unshift(action.payload);
             }
          })
@@ -50,14 +63,18 @@ const comments = createSlice({
             state.error = action.payload;
          })
          .addCase(getComments.fulfilled, (state, action) => {
-            console.log(action.payload);
-
             state.comments = action.payload;
          });
    },
 });
 
-export const { setRating, setReview } = comments.actions;
+export const {
+   setRating,
+   setReview,
+   resetCommentState,
+   setUserComment,
+   resetComments,
+} = comments.actions;
 
 export default comments.reducer;
 

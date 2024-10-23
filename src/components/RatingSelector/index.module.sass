@@ -1,5 +1,7 @@
+@import '../../styles/variables'
 
 .list
+    position: relative
     display: flex
     justify-content: center
 
@@ -7,3 +9,23 @@
     cursor: pointer
     &:not(:last-child)
         padding-inline-end: 1.625rem
+
+.notification
+    position: absolute
+    inset-block-start: 36px
+    inset-inline-start: 65px
+    display: none
+    padding: 0.5rem 0.75rem
+    background: $accent-color
+    transform: opacity .3s
+
+    &_open
+        display: block
+
+    &::before
+        content: ''
+        position: absolute
+        inset-block-start: -10px
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        border-bottom: 10px solid $accent-color

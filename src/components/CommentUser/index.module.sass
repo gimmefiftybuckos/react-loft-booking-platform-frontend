@@ -1,0 +1,40 @@
+@import '../../styles/variables'
+
+.item
+    margin-block-end: 1.75rem
+    padding: 2rem 2rem
+    border-radius: 1rem
+    outline: 1px solid $accent-alt-color
+
+    &__container
+        display: flex
+        align-items: center
+
+    &__name
+        margin-inline-start: 1rem
+        margin-inline-end: 1.5rem
+
+    &__date
+        margin-inline-start: 1.25rem
+
+.text
+    &::before
+        content: ''
+        margin-block-start: 0.5rem
+        margin-block-end: 1.25rem
+        display: block
+        block-size: 1px
+        inline-size: 100%
+        background: $border-color
+
+    // &::after
+    //     content: ''
+    //     margin-block-start: 1.25rem
+    //     display: block
+    //     block-size: 1px
+    //     inline-size: 100%
+    //     background: $border-color
+
+    &__review
+        box-sizing: border-box
+        padding-inline: 1rem

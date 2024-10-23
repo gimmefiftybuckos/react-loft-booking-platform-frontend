@@ -43,11 +43,6 @@ function App() {
 
    useEffect(() => {
       setHideFooter(footerHiddenRoutes.includes(location.pathname));
-
-      if (!location.pathname.match('catalog')) {
-         dispatch(resetCardsState());
-         dispatch(resetLoft());
-      }
    }, [location]);
 
    return isReady ? (

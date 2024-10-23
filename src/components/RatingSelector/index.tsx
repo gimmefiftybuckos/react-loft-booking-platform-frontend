@@ -5,14 +5,22 @@ import styles from './index.module.sass';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from '../../store';
 import { setRating } from '../../store/slices/comments';
+import { Text } from '../../components/ui/Text';
 
 enum StarsColor {
    FILL = '#FF9431',
    EMPTY = '#D9D9DE',
 }
 
-export const RatingSelector = () => {
+export const RatingSelector = ({
+   popupStatus: isOpen,
+   setPopup,
+}: {
+   popupStatus: boolean;
+   setPopup: (value: boolean) => void;
+}) => {
    const { userRating } = useSelector((state) => state.comments);
+
    const dispatch = useDispatch();
 
    const [hoverIndex, setHoverIndex] = useState(-1);
@@ -26,8 +34,28 @@ export const RatingSelector = () => {
       }
    }, [userRating, hoverIndex]);
 
+   useEffect(() => {
+      if (isOpen) {
+         setPopup(!isOpen);
+      }
+
+      return () => {
+         setPopup(false);
+      };
+   }, [userRating]);
+
    return (
       <div className={clsx(styles.list)}>
+         <div
+            className={clsx(
+               styles.notification,
+               isOpen && styles.notification_open
+            )}
+         >
+            <Text size='14' color='white'>
+               Пожалуйста, оставьте оценку
+            </Text>
+         </div>
          {new Array(5).fill(0).map((item, index) => {
             return (
                <div

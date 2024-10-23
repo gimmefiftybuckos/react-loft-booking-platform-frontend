@@ -1,24 +1,21 @@
 import React from 'react';
 
-import {
-   CatalogFiltersType,
-   ImagesCarouselType,
-   MenuType,
-   SelectionFiltersType,
-} from '../../../types';
+import { CatalogFiltersType, SelectionFiltersType } from '../../../types';
 
 import { Calendar } from '../Calendar';
 import { SearchList } from '../SearchList';
 import { PriceSlider } from '../PriceSlider';
 import { Images } from '../Images';
 import { Menu } from '../Menu';
+import { CommentForm } from '../CommentForm';
 
 type ModalContentProps = {
    name:
       | SelectionFiltersType
       | CatalogFiltersType
-      | ImagesCarouselType
-      | MenuType;
+      | 'Images'
+      | 'Menu'
+      | 'Comment';
 };
 
 const contentMap: { [key: string]: React.ReactNode } = {
@@ -27,6 +24,7 @@ const contentMap: { [key: string]: React.ReactNode } = {
    Price: <PriceSlider />,
    Images: <Images />,
    Menu: <Menu />,
+   Comment: <CommentForm />,
 };
 
 export const ModalContent: React.FC<ModalContentProps> = ({ name }) => {

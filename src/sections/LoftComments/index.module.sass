@@ -4,7 +4,7 @@
     display: flex
     flex-direction: column
     gap: 2rem
-    max-inline-size: 770px
+    max-inline-size: 880px
 
 .rating
     display: flex
@@ -14,10 +14,22 @@
     padding: 1.5625rem 2.5rem
     outline: 2px solid $border-color
 
+    &_user
+        flex-direction: column
+        align-items: stretch
+
     &__container
         display: flex
         gap: 1.25rem
         align-items: center
+
+.user
+    margin-block-start: 2.5rem
+
+    &__container
+        display: flex
+        align-items: center
+        gap: 4rem
 
 .button
     display: block
