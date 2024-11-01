@@ -56,7 +56,7 @@ export const RatingSelector = ({
                Пожалуйста, оставьте оценку
             </Text>
          </div>
-         {new Array(5).fill(0).map((item, index) => {
+         {new Array(5).fill(0).map((_, index) => {
             return (
                <div
                   key={index}

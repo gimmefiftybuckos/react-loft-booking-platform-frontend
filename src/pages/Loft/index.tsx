@@ -21,6 +21,8 @@ export const Loft = () => {
    const { pathname } = useLocation();
    const { controlIndex } = useModalControl();
    const { card } = useSelector((state) => state.cards);
+   const { userComment } = useSelector((state) => state.comments);
+   const { isAuth } = useSelector((state) => state.user);
 
    const loftId = pathname.split('/')[2];
 
@@ -35,6 +37,10 @@ export const Loft = () => {
          dispatch(resetLoft());
       };
    }, []);
+
+   useEffect(() => {
+      dispatch(getLoft(loftId));
+   }, [isAuth, userComment]);
 
    if (!card) {
       return <Preloader className={clsx(styles.preloader)} />;

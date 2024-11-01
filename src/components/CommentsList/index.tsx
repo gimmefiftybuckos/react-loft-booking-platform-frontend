@@ -7,17 +7,12 @@ import { useSelector } from '../../store';
 import { CommentItem } from '../CommentItem';
 
 export const CommentList = ({ isShow }: { isShow: boolean }) => {
-   const { comments, userComment } = useSelector((state) => state.comments);
-
-   const filteredComments = comments.filter(
-      (item) => item.userId !== userComment.userId
-   );
-
-   const [commentsState, setComments] = useState(filteredComments.slice(0, 3));
+   const { comments } = useSelector((state) => state.comments);
+   const [commentsState, setComments] = useState(comments.slice(0, 3));
 
    useEffect(() => {
       if (isShow) {
-         setComments(filteredComments);
+         setComments(comments);
       }
    }, [isShow]);
 

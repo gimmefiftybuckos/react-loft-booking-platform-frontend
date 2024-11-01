@@ -17,7 +17,7 @@ export const Stars = ({
 
    return (
       <div className={clsx(styles.container)}>
-         {new Array(5).fill(0).map((item, index) => {
+         {new Array(5).fill(0).map((_, index) => {
             if (flooredRating - index === 0.5) {
                return (
                   <div

@@ -10,7 +10,12 @@ import { CommentList } from '../../components/CommentsList';
 import { Stars } from '../../components/Stars';
 import { useModalControl } from '../../hooks/useModalControl';
 import { ModalTypes } from '../../features/modal/Modal';
-import { resetComments, setUserComment } from '../../store/slices/comments';
+import {
+   resetComments,
+   resetUserComment,
+   setCommentState,
+   setUserComment,
+} from '../../store/slices/comments';
 import { CommentUser } from '../../components/CommentUser';
 
 export const LoftComments = () => {
@@ -27,17 +32,27 @@ export const LoftComments = () => {
       : 0;
 
    useEffect(() => {
-      const isUserComment = comments.find(
+      const userComment = comments.find(
          (item) => item.login === userData.login
       );
 
-      if (isUserComment) {
-         dispatch(setUserComment(isUserComment));
+      if (userComment) {
+         dispatch(setUserComment(userComment));
+      }
+
+      const otherComments = comments.filter(
+         (item) => item.login !== userData.login
+      );
+
+      dispatch(setCommentState(otherComments));
+
+      if (otherComments.length <= 3) {
+         setShow(true);
       }
 
       return () => {
          dispatch(resetComments());
-         dispatch(setUserComment({}));
+         dispatch(resetUserComment());
          setShow(false);
       };
    }, []);

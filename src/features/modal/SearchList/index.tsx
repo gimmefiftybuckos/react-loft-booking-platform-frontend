@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from '../../../store';
-import { useContext } from 'react';
 import clsx from 'clsx';
 
 import styles from './index.module.sass';
@@ -8,19 +7,19 @@ import { ICardSection } from '../../../types';
 import { cardSectionList } from '../../../services/constants';
 import { setType } from '../../../store/slices/cardCatalog';
 
-import { ModalContext } from '../../../context';
 import { Button } from '../../../components/Button';
+import { useModalControl } from '../../../hooks/useModalControl';
 
 export const SearchList = () => {
    const dispatch = useDispatch();
-   const toggleModal = useContext(ModalContext);
+   const { closeModal } = useModalControl();
 
    const cardSectionListSlice = cardSectionList.slice(2, 100);
    const { type } = useSelector((state) => state.cards);
 
    const onClick = (item: ICardSection) => {
       dispatch(setType(item.type));
-      toggleModal ? toggleModal(-1) : null;
+      closeModal();
    };
 
    return (

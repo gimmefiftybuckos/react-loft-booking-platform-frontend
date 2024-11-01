@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from './store';
@@ -6,8 +7,6 @@ import { authUser } from './store/slices/userAuth';
 
 import { Main } from './sections/Main';
 import { Layout } from './sections/Layout';
-import { useLocation } from 'react-router-dom';
-import { resetCardsState, resetLoft } from './store/slices/cardCatalog';
 
 function App() {
    const dispatch = useDispatch();
@@ -35,7 +34,7 @@ function App() {
       if (status !== 'loading') {
          const timer = setTimeout(() => {
             setIsReady(true);
-         }, 100);
+         }, 150);
 
          return () => clearTimeout(timer);
       }

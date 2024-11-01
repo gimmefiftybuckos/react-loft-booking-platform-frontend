@@ -15,13 +15,15 @@ export interface ILoft {
    date?: Date;
 }
 
-export interface ICommentsGet {
+export interface ICommentsInit {
    userId: string;
    login: string;
    userReview: string;
    userRating: number;
    date: string;
 }
+
+export type ICommentsGet = Partial<ICommentsInit>;
 
 export interface ICommentsPost {
    loftId: string;
@@ -65,3 +67,17 @@ export type TUser = {
    email: string;
    login: string;
 };
+
+export enum RoutesCatalog {
+   HOME = '/',
+   CATALOG = '/catalog',
+   IDEAS = '/ideas',
+   FAVORITES = '/favorites',
+   LOFT = '/catalog/:id',
+   PROFILE = '/profile',
+   REQUESTS = '/requests',
+   NOTIFICATIONS = '/notifications',
+   USER_LOFTS = '/user/lofts',
+   USER_STAT = '/user/statistic',
+   NEW_LOFT = '/new-loft',
+}

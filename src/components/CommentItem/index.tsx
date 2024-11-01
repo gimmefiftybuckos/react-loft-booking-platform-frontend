@@ -8,7 +8,7 @@ import { months } from '../../services/constants';
 import { capitalLetter } from '../../services/utils';
 
 export const CommentItem = ({ data }: { data: Partial<ICommentsGet> }) => {
-   const date = new Date(Date.parse(data.date || '0'));
+   const date = new Date(Date.parse(data.date!));
    const dateStr = `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
    return (

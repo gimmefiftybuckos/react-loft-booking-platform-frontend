@@ -8,7 +8,6 @@ import { Modal } from '../Modal';
 import { ModalContent } from '../ModalContent';
 import { Text } from '../../../components/ui/Text';
 import { Arrow } from '../../../components/ui/Arrow';
-import { ModalContext } from '../../../context';
 
 type SelectionButtonType = {
    title: SelectionFiltersType | CatalogFiltersType;
@@ -42,9 +41,7 @@ export const SelectionButton: React.FC<SelectionButtonType> = ({
          <Text weight={500}>{currentValue || title}</Text>
          <Arrow num={isActive ? index : -1} index={index} />
          <Modal isOpen={isActive}>
-            <ModalContext.Provider value={onClick}>
-               <ModalContent name={title} />
-            </ModalContext.Provider>
+            <ModalContent name={title} />
          </Modal>
       </div>
    );

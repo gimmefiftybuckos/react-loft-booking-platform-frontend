@@ -75,6 +75,7 @@ export const PriceSlider = () => {
    const resetHandler = () => {
       dispatch({ type: 'reset', payload: 0 });
       setCurrentPrice([0, MAX_PRICE]);
+      closeModal();
    };
 
    useEffect(() => {
