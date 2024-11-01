@@ -95,3 +95,11 @@ export function getCookie(name: string): string | undefined {
 export function deleteCookie(name: string) {
    setCookie(name, '');
 }
+
+export const capitalLetter = (value: string | undefined) => {
+   if (!value) {
+      return value;
+   }
+
+   return value?.charAt(0).toUpperCase() + value.slice(1);
+};

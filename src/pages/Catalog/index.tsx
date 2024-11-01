@@ -26,6 +26,12 @@ export const Catalog = () => {
       setPriceParam(getInitParam(price, 'price'));
    }, [type, date, price]);
 
+   useEffect(() => {
+      // console.log(searchParams);
+
+      console.log(type);
+   }, [type, date, price]);
+
    return (
       <>
          <CatalogFilterButtons />

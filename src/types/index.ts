@@ -15,6 +15,20 @@ export interface ILoft {
    date?: Date;
 }
 
+export interface ICommentsGet {
+   userId: string;
+   login: string;
+   userReview: string;
+   userRating: number;
+   date: string;
+}
+
+export interface ICommentsPost {
+   loftId: string;
+   userReview: string;
+   userRating: number;
+}
+
 export interface ICardSection {
    title: string;
    type: TypeParamsType;
@@ -39,10 +53,6 @@ export type TypeParamsType =
 export type SelectionFiltersType = 'Event' | 'Date' | 'Start Time' | 'End Time';
 
 export type CatalogFiltersType = 'Event' | 'Price' | 'Date' | 'Filters';
-
-export type ImagesCarouselType = 'Images';
-
-export type MenuType = 'Menu';
 
 export type TCatalogParams = {
    type?: string;

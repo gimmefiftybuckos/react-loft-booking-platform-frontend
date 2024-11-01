@@ -4,38 +4,59 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { useDispatch } from '../../store';
+import { useDispatch, useSelector } from '../../store';
 import { useModalControl } from '../../hooks/useModalControl';
 import { getLoft, resetLoft } from '../../store/slices/cardCatalog';
 
-import { Modal } from '../../features/modal/Modal';
+import { Modal, ModalTypes } from '../../features/modal/Modal';
 import { LoftImages } from '../../sections/LoftImages';
 import { LoftDescription } from '../../sections/LoftDescription';
 import { ModalContent } from '../../features/modal/ModalContent';
+import { LoftComments } from '../../sections/LoftComments';
+import { getComments } from '../../store/slices/comments';
+import { Preloader } from '../../components/ui/Preloader';
 
 export const Loft = () => {
+   const dispatch = useDispatch();
    const { pathname } = useLocation();
    const { controlIndex } = useModalControl();
-   const dispatch = useDispatch();
+   const { card } = useSelector((state) => state.cards);
 
-   const id = pathname.split('/')[2];
+   const loftId = pathname.split('/')[2];
 
    useEffect(() => {
-      dispatch(getLoft(id));
+      dispatch(getComments(loftId));
+
+      if (!card) {
+         dispatch(getLoft(loftId));
+      }
 
       return () => {
          dispatch(resetLoft());
       };
    }, []);
 
+   if (!card) {
+      return <Preloader className={clsx(styles.preloader)} />;
+   }
+
    return (
       <>
-         <Modal className={clsx(styles.carousel)} isOpen={controlIndex >= 0}>
+         <Modal
+            className={clsx(styles.modal, styles.modal__images)}
+            isOpen={controlIndex >= 0 && controlIndex < 100}
+         >
             <ModalContent name={'Images'} />
          </Modal>
-
+         <Modal
+            className={clsx(styles.modal, styles.modal__review)}
+            isOpen={controlIndex === ModalTypes.REVIEW}
+         >
+            <ModalContent name='Comment' />
+         </Modal>
          <LoftImages />
          <LoftDescription />
+         <LoftComments />
       </>
    );
 };

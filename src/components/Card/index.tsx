@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 
 import styles from './index.module.sass';
@@ -11,8 +10,6 @@ import { Rating } from './Rating';
 import { Room, RoomInfoVariant } from './Room';
 import { Distance } from './Distance';
 import { ImagesGallery } from './ImagesGallery';
-import { useDispatch } from '../../store';
-import { getLoft } from '../../store/slices/cardCatalog';
 
 type CardProps = {
    cardData: ILoft;
@@ -20,9 +17,6 @@ type CardProps = {
 };
 
 export const Card: React.FC<CardProps> = ({ cardData, wide }) => {
-   const navigate = useNavigate();
-   const dispatch = useDispatch();
-
    const size = wide ? '_wide' : '';
 
    const template = wide ? (
@@ -57,10 +51,7 @@ export const Card: React.FC<CardProps> = ({ cardData, wide }) => {
    );
 
    const onClick = () => {
-      dispatch(getLoft(cardData.id));
-      setTimeout(() => {
-         navigate(`/catalog/${cardData.id}`);
-      }, 100);
+      window.open(`/catalog/${cardData.id}`, '_blank');
    };
 
    return (

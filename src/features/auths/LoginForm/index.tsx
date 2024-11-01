@@ -11,6 +11,7 @@ import { useAuthForm } from '../hooks/useAuthForm';
 import { Input } from '../../../components/Input';
 import { Button, ButtonVariant } from '../../../components/Button';
 import { Text } from '../../../components/ui/Text';
+import { capitalLetter } from '../../../services/utils';
 
 const loginFormValues = ['login', 'password'] as const;
 
@@ -55,12 +56,12 @@ export const LoginForm = () => {
             </Text>
             {loginFormValues.map((item, index) => {
                const type = item === 'password' ? item : 'text';
-               const capitalText = item.charAt(0).toUpperCase() + item.slice(1);
+
                return (
                   <div key={item} className={clsx(styles.form__container)}>
                      <Input
                         type={type}
-                        placeholder={capitalText}
+                        placeholder={capitalLetter(item)}
                         autoFocus={index === 0}
                         value={values[item]}
                         className={clsx(

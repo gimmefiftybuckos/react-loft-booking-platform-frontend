@@ -11,6 +11,7 @@ import { initalRegistrInput, validateRegistr } from '../authsUtils';
 import { Text } from '../../../components/ui/Text';
 import { Input } from '../../../components/Input';
 import { Button, ButtonVariant } from '../../../components/Button';
+import { capitalLetter } from '../../../services/utils';
 
 const registrFormValues = ['email', 'login', 'password'] as const;
 
@@ -52,13 +53,12 @@ export const RegistrationForm = () => {
                {error}
             </Text>
             {registrFormValues.map((item, index) => {
-               const capitalText = item.charAt(0).toUpperCase() + item.slice(1);
                const type = item === 'password' ? item : 'text';
                return (
                   <div key={item} className={clsx(styles.form__container)}>
                      <Input
                         type={type}
-                        placeholder={capitalText}
+                        placeholder={capitalLetter(item)}
                         autoFocus={index === 0}
                         value={values[item]}
                         className={clsx(
