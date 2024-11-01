@@ -9,7 +9,7 @@ import { Stars } from '../Stars';
 import { capitalLetter } from '../../services/utils';
 
 export const CommentUser = ({ data }: { data: Partial<ICommentsGet> }) => {
-   const date = new Date(Date.parse(data.date || '0'));
+   const date = new Date(Date.parse(data.date!));
    const dateStr = `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 
    return (
@@ -34,10 +34,27 @@ export const CommentUser = ({ data }: { data: Partial<ICommentsGet> }) => {
                {dateStr}
             </Text>
          </div>
-         <div className={clsx(styles.text)}>
-            <Text className={clsx(styles.text__review)} as='p'>
-               {data.userReview}
-            </Text>
+         <div
+            className={clsx(
+               styles.text,
+               data.userReview && styles.text_underline
+            )}
+         >
+            {data.userReview && (
+               <>
+                  <Text
+                     className={clsx(styles.text__description)}
+                     color='gray'
+                     size='14'
+                     as='p'
+                  >
+                     Комментарий
+                  </Text>
+                  <Text className={clsx(styles.text__review)} as='p'>
+                     {data.userReview}
+                  </Text>
+               </>
+            )}
          </div>
       </div>
    );

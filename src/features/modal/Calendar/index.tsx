@@ -1,5 +1,5 @@
 import { DayPicker } from 'react-day-picker';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from '../../../store';
 import 'react-day-picker/dist/style.css';
 import clsx from 'clsx';
@@ -7,28 +7,24 @@ import clsx from 'clsx';
 import styles from './index.module.sass';
 
 import { setDate } from '../../../store/slices/cardCatalog';
-import { ModalContext } from '../../../context';
 
 import { Button, ButtonVariant } from '../../../components/Button';
 
 import { todayDate } from '../../../services/constants';
+import { useModalControl } from '../../../hooks/useModalControl';
 
 export const Calendar = () => {
-   const [selected, setSelected] = useState<Date>();
+   const { closeModal } = useModalControl();
    const dispatch = useDispatch();
 
-   const toggleModal = useContext(ModalContext);
+   const [selected, setSelected] = useState<Date>();
 
    const onClick = () => {
       const date = `${selected?.getDate()}:${selected?.getMonth() ? selected?.getMonth() + 1 : null}:${selected?.getFullYear()}`;
 
-      if (selected?.getDate()) {
-         dispatch(setDate(date));
-      } else {
-         dispatch(setDate(''));
-      }
+      dispatch(setDate(date!));
 
-      toggleModal ? toggleModal(-1) : null;
+      closeModal();
    };
 
    return (

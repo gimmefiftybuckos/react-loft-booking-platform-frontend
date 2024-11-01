@@ -118,7 +118,7 @@ export const ImagesGallery: React.FC<TGalleryProps> = ({ cardData, wide }) => {
             />
          </div>
          <div className={clsx(styles.slider)}>
-            {imagesArr.map((item, index) => {
+            {imagesArr.map((_, index) => {
                return (
                   <button
                      key={index}

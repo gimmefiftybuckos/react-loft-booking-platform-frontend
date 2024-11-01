@@ -7,38 +7,40 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from '../../../store';
 import { logoutUser } from '../../../store/slices/userAuth';
 import { useModalControl } from '../../../hooks/useModalControl';
+import { RoutesCatalog } from '../../../types';
 
 const menuButtonsData = [
    {
       title: 'Мой профиль',
-      route: '/profile',
-      url: 'user',
+      route: RoutesCatalog.PROFILE,
+      path: 'user',
    },
    {
       title: 'Мои заявки',
-      route: '/requests',
-      url: 'list',
+      route: RoutesCatalog.REQUESTS,
+      path: 'list',
    },
    {
       title: 'Уведомления',
-      route: '/notifications',
-      url: 'notification',
+      route: RoutesCatalog.NOTIFICATIONS,
+      path: 'notification',
    },
    {
       title: 'Мои площадки',
-      route: '/user/lofts',
-      url: 'category',
+      route: RoutesCatalog.USER_LOFTS,
+      path: 'category',
    },
    {
       title: 'Статистика',
-      route: '/user/stat',
-      url: 'activity',
+      route: RoutesCatalog.USER_STAT,
+      path: 'activity',
    },
 ];
 
 export const Menu = () => {
    const dispatch = useDispatch();
    const { closeModal } = useModalControl();
+
    const onClickDefault = () => {
       closeModal();
    };
@@ -57,7 +59,7 @@ export const Menu = () => {
                   >
                      <img
                         className={clsx(styles.image)}
-                        src={`/assets/${item.url}.svg`}
+                        src={`/assets/${item.path}.svg`}
                         alt=''
                      />
                      {item.title}
@@ -66,6 +68,8 @@ export const Menu = () => {
             })}
          </div>
          <Button
+            as={Link}
+            pathTo={RoutesCatalog.NEW_LOFT}
             variant={ButtonVariant.ACCENT}
             onClick={onClickDefault}
             className={clsx(styles.button, styles.button_accent)}

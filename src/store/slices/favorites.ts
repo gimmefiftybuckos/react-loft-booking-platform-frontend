@@ -50,6 +50,7 @@ const favorites = createSlice({
             state.status = 'loading';
          })
          .addCase(getFavoritesLofts.fulfilled, (state, action) => {
+            state.status = 'succeeded';
             state.favoritesLofts = action.payload;
          })
          .addCase(getFavoritesLofts.rejected, (state) => {

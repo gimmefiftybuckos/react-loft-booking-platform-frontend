@@ -2,7 +2,7 @@
 
 .item
     margin-block-end: 1.75rem
-    padding: 2rem 2rem
+    padding: 2rem 2rem 1.75rem 2rem
     border-radius: 1rem
     outline: 1px solid $accent-alt-color
 
@@ -18,23 +18,20 @@
         margin-inline-start: 1.25rem
 
 .text
-    &::before
-        content: ''
-        margin-block-start: 0.5rem
-        margin-block-end: 1.25rem
-        display: block
-        block-size: 1px
-        inline-size: 100%
-        background: $border-color
+    &_underline
+        &::before
+            content: ''
+            margin-block-start: 0.5rem
+            margin-block-end: 1.25rem
+            display: block
+            block-size: 1px
+            inline-size: 100%
+            background: $border-color
 
-    // &::after
-    //     content: ''
-    //     margin-block-start: 1.25rem
-    //     display: block
-    //     block-size: 1px
-    //     inline-size: 100%
-    //     background: $border-color
+    &__description
+        padding-inline: 1rem
 
     &__review
+        margin-block-start: 1rem
+        padding-inline: 1.25rem
         box-sizing: border-box
-        padding-inline: 1rem

@@ -1,18 +1,15 @@
+import { useState } from 'react';
 import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
+import { useDispatch, useSelector } from '../../../store';
+
 import { Text } from '../../../components/ui/Text';
 import { Button, ButtonVariant } from '../../../components/Button';
-import { useDispatch, useSelector } from '../../../store';
 import { RatingSelector } from '../../../components/RatingSelector';
-import {
-   getComments,
-   setComment,
-   setReview,
-} from '../../../store/slices/comments';
+import { setComment, setReview } from '../../../store/slices/comments';
 import { useModalControl } from '../../../hooks/useModalControl';
-import { useState } from 'react';
 
 export const CommentForm = () => {
    const dispatch = useDispatch();
@@ -32,7 +29,7 @@ export const CommentForm = () => {
 
       dispatch(
          setComment({
-            loftId: card?.id as string,
+            loftId: card?.id!,
             userRating: userRating,
             userReview: userReview,
          })

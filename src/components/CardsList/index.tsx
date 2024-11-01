@@ -10,10 +10,10 @@ import { Card } from '../Card';
 
 type TCardsList = {
    title: string;
-   fetchMore: () => void;
+   fetchMore?: () => void;
    hasMore?: boolean;
    loftsState: ILoft[];
-   status: string;
+   status?: string;
 };
 
 export const CardsList: React.FC<TCardsList> = ({
@@ -30,7 +30,7 @@ export const CardsList: React.FC<TCardsList> = ({
          </Text>
          <InfiniteScroll
             className={clsx(styles.container)}
-            next={fetchMore}
+            next={fetchMore!}
             hasMore={hasMore || false}
             loader={
                status !== 'failed' ? (

@@ -1,25 +1,20 @@
-import { useEffect } from 'react';
-import { CardsList } from '../../components/CardsList';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { useDispatch, useSelector } from '../../store';
 import { getFavoritesLofts } from '../../store/slices/favorites';
-import { useNavigate } from 'react-router-dom';
+
+import { CardsList } from '../../components/CardsList';
 
 export const FavoritesLofts = () => {
    const dispatch = useDispatch();
+   const navigate = useNavigate();
    const { favoritesLofts, status } = useSelector((state) => state.favorites);
    const { isAuth } = useSelector((state) => state.user);
-   const navigate = useNavigate();
-   // const { saveCurrentPage } = useBackNavigation();
-
-   const fetchMore = () => {
-      if (status !== 'loading') {
-         dispatch(getFavoritesLofts()).catch((error) => console.error(error));
-      }
-   };
+   const [hasMore, setHasMore] = useState(true);
 
    useEffect(() => {
       if (!isAuth) {
-         // saveCurrentPage();
          navigate('/login');
       }
 
@@ -28,14 +23,22 @@ export const FavoritesLofts = () => {
       }
    }, []);
 
+   useEffect(() => {
+      if (status !== 'loading') {
+         setHasMore(false);
+      }
+
+      if (status === 'loading') {
+         setHasMore(true);
+      }
+   }, [status]);
+
    return (
       <section>
          <CardsList
             title={'Избранное'}
-            fetchMore={fetchMore}
-            hasMore={false}
+            hasMore={hasMore}
             loftsState={favoritesLofts}
-            status={status}
          />
       </section>
    );

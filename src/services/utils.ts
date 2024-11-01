@@ -1,6 +1,7 @@
 import {
    CatalogFiltersType,
    ICardSection,
+   RoutesCatalog,
    SelectionFiltersType,
 } from '../types';
 import { resetFilters } from '../store/slices/cardCatalog';
@@ -10,11 +11,11 @@ import { cardSectionList, daysOfWeek, months } from './constants';
 export const createNavPoints = (dispatch: AppDispatch) => [
    {
       name: 'Все лофты',
-      path: '/catalog',
+      path: RoutesCatalog.CATALOG,
       onClick: () => dispatch(resetFilters()),
    },
-   { name: 'Идеи', path: '/ideas' },
-   { name: 'Избранное', path: '/favorites' },
+   { name: 'Идеи', path: RoutesCatalog.IDEAS },
+   { name: 'Избранное', path: RoutesCatalog.FAVORITES },
 ];
 
 export const formatDate = (fullDate: string): string | null => {

@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { ICommentsGet, ICommentsPost } from '../../types';
 import { getCommentsApi, setCommentApi } from '../../services/api';
+import { logoutUser } from './userAuth';
 
 type TCommentsSlice = {
    comments: ICommentsGet[];
-   userComment: Partial<ICommentsGet>;
+   userComment: ICommentsGet;
    loftId: string;
    userRating: number;
    userReview: string;
@@ -40,12 +41,20 @@ const comments = createSlice({
       setReview: (state, action) => {
          state.userReview = action.payload;
       },
+      setCommentState: (state, action) => {
+         state.comments = action.payload;
+      },
+
       resetCommentState: (state) => {
          state.userRating = -1;
          state.userReview = '';
       },
       setUserComment: (state, action) => {
          state.userComment = action.payload;
+      },
+
+      resetUserComment: (state) => {
+         state.userComment = {};
       },
       resetComments: (state) => {
          state.comments = [];
@@ -64,6 +73,9 @@ const comments = createSlice({
          })
          .addCase(getComments.fulfilled, (state, action) => {
             state.comments = action.payload;
+         })
+         .addCase(logoutUser.pending, (state) => {
+            state.userComment = {};
          });
    },
 });
@@ -73,7 +85,9 @@ export const {
    setReview,
    resetCommentState,
    setUserComment,
+   resetUserComment,
    resetComments,
+   setCommentState,
 } = comments.actions;
 
 export default comments.reducer;

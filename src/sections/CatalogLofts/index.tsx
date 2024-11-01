@@ -5,7 +5,13 @@ import { getTitle, updateSearchParams } from '../../services/utils';
 import { useDispatch, useSelector } from '../../store';
 import { cardSectionList } from '../../services/constants';
 
-import { getCardsList, resetCardsState } from '../../store/slices/cardCatalog';
+import {
+   getCardsList,
+   resetCardsState,
+   setDate,
+   setPrice,
+   setType,
+} from '../../store/slices/cardCatalog';
 import { CardsList } from '../../components/CardsList';
 
 type TQuerryParams = Record<string, string>;
@@ -48,6 +54,9 @@ export const CatalogLofts = ({ params, setSearchParams }: TCatalogLofts) => {
       setTitle(title);
       const queryParams = updateSearchParams(typeParam, dateParam, priceParam);
       setSearchParams(queryParams, { replace: true });
+      dispatch(setType(typeParam));
+      dispatch(setPrice(priceParam));
+      dispatch(setDate(dateParam));
 
       dispatch(
          getCardsList({
