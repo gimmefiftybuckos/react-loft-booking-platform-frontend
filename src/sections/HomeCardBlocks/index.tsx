@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { TypeParamsType, ICardSection } from '../../types';
+import { TParamsTypes, ICardSection, RoutesCatalog } from '../../types';
 import { setType } from '../../store/slices/cardCatalog';
 
 import { Text } from '../../components/ui/Text';
@@ -18,8 +18,8 @@ export const HomeCardBlock: React.FC<CardBlockSectionProps> = ({ data }) => {
    const navigate = useNavigate();
    const dispatch = useDispatch();
 
-   const clickHandle = useCallback((type: TypeParamsType) => {
-      navigate('/catalog');
+   const clickHandle = useCallback((type: TParamsTypes) => {
+      navigate(RoutesCatalog.CATALOG);
       dispatch(setType(type));
    }, []);
 

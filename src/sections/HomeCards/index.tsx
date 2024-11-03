@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { TypeParamsType, ILoft } from '../../types';
+import { TParamsTypes, ILoft, RoutesCatalog } from '../../types';
 import { catchError, getAllLoftsApi } from '../../services/api';
 import { setType } from '../../store/slices/cardCatalog';
 
@@ -17,7 +17,7 @@ import { Preloader } from '../../components/ui/Preloader';
 
 type CardSectionProps = {
    title?: string;
-   type?: TypeParamsType;
+   type?: TParamsTypes;
 };
 
 export const HomeCards: React.FC<CardSectionProps> = ({
@@ -63,7 +63,11 @@ export const HomeCards: React.FC<CardSectionProps> = ({
                {title}
             </Text>
             <div className={clsx(styles['section__button-container'])}>
-               <Button as={Link} pathTo='/catalog' onClick={clickHandle}>
+               <Button
+                  as={Link}
+                  pathTo={RoutesCatalog.CATALOG}
+                  onClick={clickHandle}
+               >
                   Смотреть все
                </Button>
             </div>

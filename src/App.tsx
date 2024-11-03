@@ -7,6 +7,7 @@ import { authUser } from './store/slices/userAuth';
 
 import { Main } from './sections/Main';
 import { Layout } from './sections/Layout';
+import { RoutesCatalog } from './types';
 
 function App() {
    const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function App() {
    const [isReady, setIsReady] = useState(false);
    const [hideFooter, setHideFooter] = useState(false);
 
-   const footerHiddenRoutes = ['/login', '/registration'];
+   const footerHiddenRoutes = [RoutesCatalog.LOGIN, RoutesCatalog.REGISTRATION];
 
    useEffect(() => {
       if (isAuth) {
@@ -41,16 +42,20 @@ function App() {
    }, []);
 
    useEffect(() => {
-      setHideFooter(footerHiddenRoutes.includes(location.pathname));
+      setHideFooter(
+         footerHiddenRoutes.includes(location.pathname as RoutesCatalog)
+      );
    }, [location]);
 
-   return isReady ? (
-      <>
-         <Layout hideFooter={hideFooter}>
-            <Main />
-         </Layout>
-      </>
-   ) : null;
+   return (
+      isReady && (
+         <>
+            <Layout hideFooter={hideFooter}>
+               <Main />
+            </Layout>
+         </>
+      )
+   );
 }
 
 export default App;

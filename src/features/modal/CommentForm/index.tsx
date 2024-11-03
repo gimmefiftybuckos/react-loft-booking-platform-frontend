@@ -9,7 +9,7 @@ import { Text } from '../../../components/ui/Text';
 import { Button, ButtonVariant } from '../../../components/Button';
 import { RatingSelector } from '../../../components/RatingSelector';
 import { setComment, setReview } from '../../../store/slices/comments';
-import { useModalControl } from '../../../hooks/useModalControl';
+import useModalControl from '../../../hooks/useModalControl';
 
 export const CommentForm = () => {
    const dispatch = useDispatch();

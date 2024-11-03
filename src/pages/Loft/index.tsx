@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import styles from './index.module.sass';
 
 import { useDispatch, useSelector } from '../../store';
-import { useModalControl } from '../../hooks/useModalControl';
+import useModalControl from '../../hooks/useModalControl';
 import { getLoft, resetLoft } from '../../store/slices/cardCatalog';
 
 import { Modal, ModalTypes } from '../../features/modal/Modal';

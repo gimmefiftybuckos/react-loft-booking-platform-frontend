@@ -9,9 +9,11 @@ import { Button, ButtonVariant } from '../../../components/Button';
 import { HomeButton } from '../HomeButton';
 import { Link } from 'react-router-dom';
 import { Modal } from '../../../features/modal/Modal';
-import { useModalControl } from '../../../hooks/useModalControl';
+import useModalControl from '../../../hooks/useModalControl';
 import { ModalContent } from '../../../features/modal/ModalContent';
 import { ModalTypes } from '../../../features/modal/Modal';
+import { Arrow } from '../../../components/ui/Arrow';
+import { RoutesCatalog } from '../../../types';
 
 export const Navigation = () => {
    const dispatch = useDispatch();
@@ -37,13 +39,16 @@ export const Navigation = () => {
             </div>
             <div className={clsx(styles.container)}>
                {isAuth ? (
-                  <Button onClick={() => toggleModal(ModalTypes.MENU)}>
-                     {userData.login}
-                  </Button>
+                  <>
+                     <Button onClick={() => toggleModal(ModalTypes.MENU)}>
+                        {userData.login}
+                        <Arrow className={clsx(styles.arrow)} />
+                     </Button>
+                  </>
                ) : (
                   <Button
                      as={Link}
-                     pathTo='/login'
+                     pathTo={RoutesCatalog.LOGIN}
                      variant={ButtonVariant.ACCENT}
                   >
                      Войти

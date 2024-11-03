@@ -14,6 +14,7 @@ import { Home } from './pages/Home/index.tsx';
 import { Favorites } from './pages/Favorites/index.tsx';
 import { Registration } from './pages/Registration/index.tsx';
 import { Login } from './pages/Login/index.tsx';
+import { AddLoft } from './pages/AddLoft/index.tsx';
 
 const router = createBrowserRouter([
    {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
          {
             path: 'favorites',
             element: <Favorites />,
+         },
+         {
+            path: 'add-loft',
+            element: <AddLoft />,
          },
       ],
    },

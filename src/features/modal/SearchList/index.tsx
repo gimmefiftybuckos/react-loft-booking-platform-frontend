@@ -8,7 +8,7 @@ import { cardSectionList } from '../../../services/constants';
 import { setType } from '../../../store/slices/cardCatalog';
 
 import { Button } from '../../../components/Button';
-import { useModalControl } from '../../../hooks/useModalControl';
+import useModalControl from '../../../hooks/useModalControl';
 
 export const SearchList = () => {
    const dispatch = useDispatch();

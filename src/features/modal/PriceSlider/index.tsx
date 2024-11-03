@@ -8,7 +8,7 @@ import styles from './index.module.sass';
 import { useDispatch } from '../../../store';
 import { setPrice } from '../../../store/slices/cardCatalog';
 import { MAX_PRICE } from '../../../services/constants';
-import { useModalControl } from '../../../hooks/useModalControl';
+import useModalControl from '../../../hooks/useModalControl';
 
 import { Text } from '../../../components/ui/Text';
 import { Button, ButtonVariant } from '../../../components/Button';

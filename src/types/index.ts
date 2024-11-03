@@ -1,17 +1,22 @@
-export interface ILoft {
-   id: string;
+export interface ILoftInit {
    title: string;
    description: string;
+   address: string;
    metroStation: string;
    walkingDistanceMinutes: number;
-   reviewsCount: number;
-   averageRating: string;
    pricePerHour: number;
    maxPersons: number;
    seatingPlaces: number;
    area: number;
+   type: TParamsTypes[];
+   rule: string[];
+}
+
+export interface ILoft extends ILoftInit {
+   id: string;
+   reviewsCount: number;
+   averageRating: string;
    imageUrl: string[];
-   type: string[];
    date?: Date;
 }
 
@@ -33,10 +38,10 @@ export interface ICommentsPost {
 
 export interface ICardSection {
    title: string;
-   type: TypeParamsType;
+   type: TParamsTypes;
 }
 
-export type TypeParamsType =
+export type TParamsTypes =
    | ''
    | 'recommendations'
    | 'coworking'
@@ -70,6 +75,8 @@ export type TUser = {
 
 export enum RoutesCatalog {
    HOME = '/',
+   REGISTRATION = '/registration',
+   LOGIN = '/login',
    CATALOG = '/catalog',
    IDEAS = '/ideas',
    FAVORITES = '/favorites',
@@ -79,5 +86,5 @@ export enum RoutesCatalog {
    NOTIFICATIONS = '/notifications',
    USER_LOFTS = '/user/lofts',
    USER_STAT = '/user/statistic',
-   NEW_LOFT = '/new-loft',
+   ADD_LOFT = '/add-loft',
 }

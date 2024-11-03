@@ -6,7 +6,7 @@ import styles from './index.module.sass';
 
 import { useSelector } from '../../store';
 import { API_URL } from '../../services/constants';
-import { useModalControl } from '../../hooks/useModalControl';
+import useModalControl from '../../hooks/useModalControl';
 import { Button } from '../../components/Button';
 
 export const LoftImages = () => {

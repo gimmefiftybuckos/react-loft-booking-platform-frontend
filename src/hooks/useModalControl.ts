@@ -4,10 +4,10 @@ import {
    setIndexModal,
    setModalClose,
 } from '../store/slices/modalControl';
-import { useBodyScrollLock } from './useBodyScrollLock';
+import useBodyScrollLock from './useBodyScrollLock';
 import { useEffect } from 'react';
 
-export const useModalControl = () => {
+const useModalControl = () => {
    const dispatch = useDispatch();
    const { imageIndex: curImageIndex, controlIndex } = useSelector(
       (state) => state.modalControl
@@ -42,3 +42,5 @@ export const useModalControl = () => {
       closeModal,
    };
 };
+
+export default useModalControl;
