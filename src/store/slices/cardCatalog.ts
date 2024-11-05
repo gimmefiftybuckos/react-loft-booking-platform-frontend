@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { TParamsTypes, ILoft, TCatalogParams } from '../../types';
+import { TLoftTypes, ILoft, TCatalogParams } from '../../types';
 import { MAX_PRICE } from '../../services/constants';
 import { getAllLoftsApi, getLoftApi } from '../../services/api';
 
@@ -18,7 +18,7 @@ type TCardSlice = {
    cards: ILoft[];
    card: ILoft | null;
    status: 'idle' | 'loading' | 'succeeded' | 'failed';
-   type: TParamsTypes;
+   type: TLoftTypes;
    date: string;
    price: string;
    limit: number;

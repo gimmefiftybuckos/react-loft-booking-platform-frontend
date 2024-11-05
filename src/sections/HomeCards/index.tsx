@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { TParamsTypes, ILoft, RoutesCatalog } from '../../types';
+import { TLoftTypes, ILoft, RoutesCatalog } from '../../types';
 import { catchError, getAllLoftsApi } from '../../services/api';
 import { setType } from '../../store/slices/cardCatalog';
 
@@ -17,7 +17,7 @@ import { Preloader } from '../../components/ui/Preloader';
 
 type CardSectionProps = {
    title?: string;
-   type?: TParamsTypes;
+   type?: TLoftTypes;
 };
 
 export const HomeCards: React.FC<CardSectionProps> = ({

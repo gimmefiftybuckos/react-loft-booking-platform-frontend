@@ -13,7 +13,7 @@ export enum ButtonVariant {
 export interface ButtonProps {
    as?: ElementType;
    pathTo?: string;
-   type?: string;
+   type?: 'button' | 'submit' | 'reset';
    children: string | React.ReactNode;
 
    className?: string;

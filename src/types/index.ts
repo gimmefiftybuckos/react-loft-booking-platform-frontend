@@ -3,13 +3,13 @@ export interface ILoftInit {
    description: string;
    address: string;
    metroStation: string;
-   walkingDistanceMinutes: number;
-   pricePerHour: number;
+   walkingDistance: number;
+   price: number;
    maxPersons: number;
    seatingPlaces: number;
    area: number;
-   type: TParamsTypes[];
-   rule: string[];
+   type: TLoftTypes[];
+   rule: TLoftRules[];
 }
 
 export interface ILoft extends ILoftInit {
@@ -36,12 +36,17 @@ export interface ICommentsPost {
    userRating: number;
 }
 
-export interface ICardSection {
+export interface ICardTypes {
    title: string;
-   type: TParamsTypes;
+   type: TLoftTypes;
 }
 
-export type TParamsTypes =
+export interface ICardRules {
+   title: string;
+   type: TLoftRules;
+}
+
+export type TLoftTypes =
    | ''
    | 'recommendations'
    | 'coworking'
@@ -56,6 +61,15 @@ export type TParamsTypes =
    | 'corporate'
    | 'birthday'
    | 'kids';
+
+export type TLoftRules =
+   | 'food'
+   | 'alcohol-allowed'
+   | 'catering'
+   | 'food-to-go'
+   | 'quiet-time'
+   | 'hookah'
+   | 'аlcohol-prohibited';
 
 export type SelectionFiltersType = 'Event' | 'Date' | 'Start Time' | 'End Time';
 

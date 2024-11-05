@@ -8,13 +8,11 @@ type TInputProps = {
    as?: ElementType;
    name?: string;
    placeholder?: string;
-   value?: string;
+   value?: string | number;
    type?: string;
    autoFocus?: boolean;
    className?: string;
-   onChange?: (
-      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-   ) => void;
+   onChange: (value: string | number) => void;
 };
 
 export const Input = forwardRef<
@@ -35,6 +33,26 @@ export const Input = forwardRef<
       },
       ref
    ) => {
+      const handleFocus = () => {
+         if (!value) {
+            onChange('');
+         }
+      };
+
+      const handleBlur = (
+         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      ) => {
+         if (!value && event.target.type === 'number') {
+            onChange(0);
+         }
+      };
+
+      const handleChange = (
+         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      ) => {
+         onChange(event.target.value);
+      };
+
       return (
          <Tag
             id={id}
@@ -44,7 +62,9 @@ export const Input = forwardRef<
             type={type}
             value={value}
             placeholder={placeholder}
-            onChange={onChange}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             className={clsx(className, styles.input)}
          />
       );

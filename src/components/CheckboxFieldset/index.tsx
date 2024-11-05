@@ -1,47 +1,51 @@
 import clsx from 'clsx';
-import { useDispatch, useSelector } from '../../store';
 
 import styles from './index.module.sass';
 
-import { TParamsTypes } from '../../types';
-import { cardSectionList } from '../../services/constants';
-import { updateLoftData } from '../../store/slices/newLoft';
+import { ICardRules, ICardTypes, TLoftRules, TLoftTypes } from '../../types';
 
 import { Text } from '../ui/Text';
 import { Checkbox } from '../Checkbox';
 
-export const CheckboxFieldset = () => {
-   const dispatch = useDispatch();
-   const { type } = useSelector((state) => state.newLoft);
-
+export const CheckboxFieldset = ({
+   legend,
+   reduxState,
+   data,
+   dispatch,
+}: {
+   legend: string;
+   reduxState: (TLoftTypes | TLoftRules)[];
+   data: ICardRules[] | ICardTypes[];
+   dispatch: (value: (TLoftTypes | TLoftRules)[]) => void;
+}) => {
    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const inputValue = event.target.value as TParamsTypes;
+      const inputValue = event.target.value as TLoftTypes | TLoftRules;
 
-      if (!type.includes(inputValue)) {
-         const newType = [...type, inputValue];
-         dispatch(updateLoftData({ type: newType }));
+      if (!reduxState.includes(inputValue)) {
+         const newType = [...reduxState, inputValue];
+         dispatch(newType);
       } else {
-         const newType = type.filter((item) => item !== inputValue);
-         dispatch(updateLoftData({ type: newType }));
+         const newType = reduxState.filter((item) => item !== inputValue);
+         dispatch(newType);
       }
    };
 
    return (
       <fieldset className={clsx(styles.fieldset)}>
          <Text className={clsx(styles.title)} size='20' as='legend'>
-            Тип площадки
+            {legend}
          </Text>
-         {cardSectionList.map((item) => {
+         {data.map((item) => {
             return (
                <>
                   <div className={clsx(styles.container)}>
                      <Checkbox
                         id={item.type}
                         value={item.type}
-                        checked={type.includes(item.type)}
+                        checked={reduxState.includes(item.type)}
                         onChange={onChange}
                      />
-                     <Text htmlFor={item.type} as='label'>
+                     <Text htmlFor={item.type} size='14' as='label'>
                         {item.title}
                      </Text>
                   </div>

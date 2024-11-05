@@ -7,8 +7,6 @@ export interface INewLoftSlice extends ILoftInit {
    email: string;
    minHours: number;
    images: string[];
-   workTime: string;
-   weekendWorkTime: string;
 }
 
 const initialState: INewLoftSlice = {
@@ -17,8 +15,8 @@ const initialState: INewLoftSlice = {
    description: '',
    address: '',
    metroStation: '',
-   walkingDistanceMinutes: 0,
-   pricePerHour: 0,
+   walkingDistance: 0,
+   price: 0,
    maxPersons: 0,
    seatingPlaces: 0,
    area: 0,
@@ -28,8 +26,6 @@ const initialState: INewLoftSlice = {
    email: '',
    minHours: 0,
    images: [],
-   workTime: '',
-   weekendWorkTime: '',
 };
 
 const newLoft = createSlice({
@@ -41,7 +37,6 @@ const newLoft = createSlice({
          action: PayloadAction<Partial<INewLoftSlice>>
       ) => {
          console.log(action.payload);
-         console.log(state);
 
          return { ...state, ...action.payload };
       },
