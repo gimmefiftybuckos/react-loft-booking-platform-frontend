@@ -28,10 +28,7 @@ export const LoftDescription = () => {
                reviewsCount={card?.reviewsCount}
                averageRating={card?.averageRating}
             />
-            <Distance
-               metro={card?.metroStation}
-               time={card?.walkingDistanceMinutes}
-            />
+            <Distance metro={card?.metroStation} time={card?.walkingDistance} />
             <Room
                variant={RoomInfoVariant.PAGE}
                area={card?.area}

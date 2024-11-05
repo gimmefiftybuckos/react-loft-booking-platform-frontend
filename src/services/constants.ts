@@ -1,6 +1,7 @@
 import {
    CatalogFiltersType,
-   ICardSection,
+   ICardRules,
+   ICardTypes,
    SelectionFiltersType,
 } from '../types';
 
@@ -69,7 +70,7 @@ export const bannersContent = [
    },
 ];
 
-export const cardSectionList: ICardSection[] = [
+export const cardLoftTypesList: ICardTypes[] = [
    {
       title: 'Мы рекомендуем',
       type: 'recommendations',
@@ -125,5 +126,36 @@ export const cardSectionList: ICardSection[] = [
    {
       title: 'Детские праздники',
       type: 'kids',
+   },
+];
+
+export const cardRulesList: ICardRules[] = [
+   {
+      title: 'Можно принести еду',
+      type: 'food',
+   },
+   {
+      title: 'Можно взять алкоголь',
+      type: 'alcohol-allowed',
+   },
+   {
+      title: 'Кейтеринг разрешен',
+      type: 'catering',
+   },
+   {
+      title: 'Еда с собой',
+      type: 'food-to-go',
+   },
+   {
+      title: 'Нельзя шуметь после 23:00',
+      type: 'quiet-time',
+   },
+   {
+      title: 'Разрешен кальян',
+      type: 'hookah',
+   },
+   {
+      title: 'Алкогольные напитки запрещены',
+      type: 'аlcohol-prohibited',
    },
 ];

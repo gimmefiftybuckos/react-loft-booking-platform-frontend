@@ -1,12 +1,12 @@
 import {
    CatalogFiltersType,
-   ICardSection,
+   ICardTypes,
    RoutesCatalog,
    SelectionFiltersType,
 } from '../types';
 import { resetFilters } from '../store/slices/cardCatalog';
 import { useSelector, AppDispatch } from '../store';
-import { cardSectionList, daysOfWeek, months } from './constants';
+import { cardLoftTypesList, daysOfWeek, months } from './constants';
 
 export const createNavPoints = (dispatch: AppDispatch) => [
    {
@@ -33,9 +33,11 @@ export const formatDate = (fullDate: string): string | null => {
 
 export const getTitle = (
    typeParam: string,
-   cardSectionList: ICardSection[]
+   cardLoftTypesList: ICardTypes[]
 ) => {
-   return cardSectionList.find((item) => item.type === typeParam)?.title || '';
+   return (
+      cardLoftTypesList.find((item) => item.type === typeParam)?.title || ''
+   );
 };
 
 export const getTitleByFilter = (
@@ -48,7 +50,7 @@ export const getTitleByFilter = (
 
    switch (filter) {
       case 'Event':
-         return type ? getTitle(type, cardSectionList) : null;
+         return type ? getTitle(type, cardLoftTypesList) : null;
       case 'Date':
          return newDate || null;
       case 'Price':

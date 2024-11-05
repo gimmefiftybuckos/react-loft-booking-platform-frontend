@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 const LAST_PAGE_KEY = 'lastVisitedPage';
 
-export const useBackNavigation = () => {
+const useBackNavigation = () => {
    const navigate = useNavigate();
 
    const saveCurrentPage = () => {
@@ -25,3 +25,5 @@ export const useBackNavigation = () => {
 
    return { goToLastPage, saveCurrentPage };
 };
+
+export default useBackNavigation;

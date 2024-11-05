@@ -6,15 +6,17 @@ type ArrowProps = {
    num?: number;
    index?: number;
    turnRight?: boolean;
+   className?: string;
 };
 
-export const Arrow = ({ num, index, turnRight }: ArrowProps) => {
+export const Arrow = ({ num, index, turnRight, className }: ArrowProps) => {
    return (
       <img
          className={clsx(
             styles.arrow,
             turnRight && styles.arrow_right,
-            num === index ? styles.arrow_open : null
+            num === index ? styles.arrow_open : null,
+            className
          )}
          src='/assets/down.svg'
          alt='Dropdown Icon'

@@ -1,17 +1,22 @@
-export interface ILoft {
-   id: string;
+export interface ILoftInit {
    title: string;
    description: string;
+   address: string;
    metroStation: string;
-   walkingDistanceMinutes: number;
-   reviewsCount: number;
-   averageRating: string;
-   pricePerHour: number;
+   walkingDistance: number;
+   price: number;
    maxPersons: number;
    seatingPlaces: number;
    area: number;
+   type: TLoftTypes[];
+   rule: TLoftRules[];
+}
+
+export interface ILoft extends ILoftInit {
+   id: string;
+   reviewsCount: number;
+   averageRating: string;
    imageUrl: string[];
-   type: string[];
    date?: Date;
 }
 
@@ -31,12 +36,17 @@ export interface ICommentsPost {
    userRating: number;
 }
 
-export interface ICardSection {
+export interface ICardTypes {
    title: string;
-   type: TypeParamsType;
+   type: TLoftTypes;
 }
 
-export type TypeParamsType =
+export interface ICardRules {
+   title: string;
+   type: TLoftRules;
+}
+
+export type TLoftTypes =
    | ''
    | 'recommendations'
    | 'coworking'
@@ -51,6 +61,15 @@ export type TypeParamsType =
    | 'corporate'
    | 'birthday'
    | 'kids';
+
+export type TLoftRules =
+   | 'food'
+   | 'alcohol-allowed'
+   | 'catering'
+   | 'food-to-go'
+   | 'quiet-time'
+   | 'hookah'
+   | 'аlcohol-prohibited';
 
 export type SelectionFiltersType = 'Event' | 'Date' | 'Start Time' | 'End Time';
 
@@ -70,6 +89,8 @@ export type TUser = {
 
 export enum RoutesCatalog {
    HOME = '/',
+   REGISTRATION = '/registration',
+   LOGIN = '/login',
    CATALOG = '/catalog',
    IDEAS = '/ideas',
    FAVORITES = '/favorites',
@@ -79,5 +100,5 @@ export enum RoutesCatalog {
    NOTIFICATIONS = '/notifications',
    USER_LOFTS = '/user/lofts',
    USER_STAT = '/user/statistic',
-   NEW_LOFT = '/new-loft',
+   ADD_LOFT = '/add-loft',
 }

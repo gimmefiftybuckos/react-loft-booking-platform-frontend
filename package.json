@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
+    "@yandex/ymaps3-types": "^1.0.15194938",
     "clsx": "^2.1.1",
     "rc-slider": "^11.1.5",
     "react": "^18.3.1",
@@ -24,6 +25,7 @@
     "redux": "^5.0.1"
   },
   "devDependencies": {
+    "@rollup/plugin-inject": "^5.0.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",

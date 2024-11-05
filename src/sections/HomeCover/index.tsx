@@ -4,7 +4,7 @@ import styles from './index.module.sass';
 
 import { getTitleByFilter } from '../../services/utils';
 import { selectionFilters } from '../../services/constants';
-import { useModalControl } from '../../hooks/useModalControl';
+import useModalControl from '../../hooks/useModalControl';
 
 import { Button, ButtonVariant } from '../../components/Button';
 import {
@@ -13,6 +13,7 @@ import {
 } from '../../features/modal/SelectionButton';
 import { CoverTitle } from './CoverTitle';
 import { Link } from 'react-router-dom';
+import { RoutesCatalog } from '../../types';
 
 export const HomeCover = () => {
    const { toggleModal, closeModal, controlIndex } = useModalControl();
@@ -43,7 +44,7 @@ export const HomeCover = () => {
 
                <Button
                   as={Link}
-                  pathTo='/catalog'
+                  pathTo={RoutesCatalog.CATALOG}
                   variant={ButtonVariant.ACCENT}
                   onClick={closeModal}
                   className={clsx(styles.button)}

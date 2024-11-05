@@ -4,7 +4,7 @@ import { useSelector } from '../../../store';
 import styles from './index.module.sass';
 
 import { API_URL } from '../../../services/constants';
-import { useModalControl } from '../../../hooks/useModalControl';
+import useModalControl from '../../../hooks/useModalControl';
 import { Preloader } from '../../../components/ui/Preloader';
 
 export const Images = () => {

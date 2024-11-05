@@ -1,4 +1,4 @@
-import { cardSectionList } from '../../services/constants';
+import { cardLoftTypesList } from '../../services/constants';
 
 import { HomeCover } from '../../sections/HomeCover';
 import { HomeBanner } from '../../sections/HomeBanner';
@@ -12,10 +12,10 @@ export const Home = () => {
    const dispatch = useDispatch();
 
    const { title: mainSectionTitle, type: mainSectionParam } =
-      cardSectionList[0];
+      cardLoftTypesList[0];
 
-   const blockSectionCards = cardSectionList.slice(1, 11);
-   const cardsSection = cardSectionList.slice(11, 100);
+   const blockSectionCards = cardLoftTypesList.slice(1, 11);
+   const cardsSection = cardLoftTypesList.slice(11, 100);
 
    useEffect(() => {
       dispatch(resetFilters());

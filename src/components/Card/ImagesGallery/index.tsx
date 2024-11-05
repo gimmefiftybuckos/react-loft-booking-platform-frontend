@@ -4,9 +4,10 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { ILoft } from '../../../types';
+import { ILoft, RoutesCatalog } from '../../../types';
 import { useDispatch, useSelector } from '../../../store';
 import { setFavorite } from '../../../store/slices/favorites';
+
 import { API_URL } from '../../../services/constants';
 
 type TGalleryProps = {
@@ -26,7 +27,7 @@ export const ImagesGallery: React.FC<TGalleryProps> = ({ cardData, wide }) => {
    const onClick = (event: React.MouseEvent) => {
       event.stopPropagation();
       if (!isAuth) {
-         navigate('/login');
+         navigate(RoutesCatalog.LOGIN);
          return;
       }
 

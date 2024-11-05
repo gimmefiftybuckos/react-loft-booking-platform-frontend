@@ -28,7 +28,7 @@ export const Card: React.FC<CardProps> = ({ cardData, wide }) => {
             seats={cardData.seatingPlaces}
          />
          <div className={clsx(styles.details)}>
-            <Price price={cardData.pricePerHour} />
+            <Price price={cardData.price} />
             <Rating
                averageRating={cardData.averageRating}
                reviewsCount={cardData.reviewsCount}
@@ -41,7 +41,7 @@ export const Card: React.FC<CardProps> = ({ cardData, wide }) => {
             averageRating={cardData.averageRating}
             reviewsCount={cardData.reviewsCount}
          />
-         <Price outline price={cardData.pricePerHour} />
+         <Price outline price={cardData.price} />
          <Room
             area={cardData.area}
             persons={cardData.maxPersons}
@@ -75,7 +75,7 @@ export const Card: React.FC<CardProps> = ({ cardData, wide }) => {
             </Text>
             <Distance
                metro={cardData.metroStation}
-               time={cardData.walkingDistanceMinutes}
+               time={cardData.walkingDistance}
             />
             {template}
          </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function useFormValidate<T>(
+function useFormValidate<T>(
    initialValues: T,
    validate: (values: T) => Partial<T>
 ) {
@@ -25,3 +25,5 @@ export function useFormValidate<T>(
       validateForm,
    } as const;
 }
+
+export default useFormValidate;

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ILoft } from '../../types';
 import { getTitle, updateSearchParams } from '../../services/utils';
 import { useDispatch, useSelector } from '../../store';
-import { cardSectionList } from '../../services/constants';
+import { cardLoftTypesList } from '../../services/constants';
 
 import {
    getCardsList,
@@ -50,7 +50,7 @@ export const CatalogLofts = ({ params, setSearchParams }: TCatalogLofts) => {
    };
 
    useEffect(() => {
-      const title = getTitle(typeParam, cardSectionList);
+      const title = getTitle(typeParam, cardLoftTypesList);
       setTitle(title);
       const queryParams = updateSearchParams(typeParam, dateParam, priceParam);
       setSearchParams(queryParams, { replace: true });

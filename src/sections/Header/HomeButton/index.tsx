@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
 import styles from './index.module.sass';
+import { RoutesCatalog } from '../../../types';
 
 export const HomeButton = () => (
-   <Link to='/' className={clsx(styles.button)}></Link>
+   <Link to={RoutesCatalog.HOME} className={clsx(styles.button)}></Link>
 );

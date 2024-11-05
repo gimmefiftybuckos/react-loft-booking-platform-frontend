@@ -11,6 +11,7 @@ import modalControlReducer from './slices/modalControl';
 import userAuthReducer from './slices/userAuth';
 import favoritesReducer from './slices/favorites';
 import commentsReducer from './slices/comments';
+import newLoftReducer from './slices/newLoft';
 
 const store = configureStore({
    reducer: {
@@ -19,6 +20,7 @@ const store = configureStore({
       modalControl: modalControlReducer,
       user: userAuthReducer,
       favorites: favoritesReducer,
+      newLoft: newLoftReducer,
    },
 });
 

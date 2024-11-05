@@ -12,6 +12,7 @@ import { Input } from '../../../components/Input';
 import { Button, ButtonVariant } from '../../../components/Button';
 import { Text } from '../../../components/ui/Text';
 import { capitalLetter } from '../../../services/utils';
+import { RoutesCatalog } from '../../../types';
 
 const loginFormValues = ['login', 'password'] as const;
 
@@ -93,7 +94,7 @@ export const LoginForm = () => {
             variant={ButtonVariant.OUTLINED}
             className={clsx(styles.button, styles.button_to)}
             as={Link}
-            pathTo='/registration'
+            pathTo={RoutesCatalog.REGISTRATION}
          >
             Зарегистрироваться
          </Button>

@@ -3,39 +3,58 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
+import { RoutesCatalog } from '../../types';
+import { ProtectedRoute } from '../../features/auths/ProtectedRoute';
+
 import { Home } from '../../pages/Home';
+import { Login } from '../../pages/Login';
+import { Registration } from '../../pages/Registration';
 import { Catalog } from '../../pages/Catalog';
 import { Loft } from '../../pages/Loft';
-import { Registration } from '../../pages/Registration';
-import { Login } from '../../pages/Login';
-import { ProtectedRoute } from '../../features/auths/ProtectedRoute';
 import { Favorites } from '../../pages/Favorites';
+import { AddLoft } from '../../pages/AddLoft';
+import { NotFound } from '../../pages/NotFound';
 
 export const Main = () => {
    return (
       <main className={clsx(styles.main)}>
          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/catalog' element={<Catalog />} />
-            <Route path='/catalog/:id' element={<Loft />} />
+            <Route path={RoutesCatalog.HOME} element={<Home />} />
+            <Route path={RoutesCatalog.CATALOG} element={<Catalog />} />
+            <Route path={RoutesCatalog.LOFT} element={<Loft />} />
             <Route
-               path='/login'
+               path={RoutesCatalog.LOGIN}
                element={
-                  <ProtectedRoute isAuthRequired={false}>
+                  <ProtectedRoute>
                      <Login />
                   </ProtectedRoute>
                }
             />
             <Route
-               path='/registration'
+               path={RoutesCatalog.REGISTRATION}
                element={
-                  <ProtectedRoute isAuthRequired={false}>
+                  <ProtectedRoute>
                      <Registration />
                   </ProtectedRoute>
                }
             />
-            <Route path='/favorites' element={<Favorites />} />
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route
+               path={RoutesCatalog.FAVORITES}
+               element={
+                  <ProtectedRoute authRequired>
+                     <Favorites />
+                  </ProtectedRoute>
+               }
+            />
+            <Route
+               path={RoutesCatalog.ADD_LOFT}
+               element={
+                  <ProtectedRoute authRequired>
+                     <AddLoft />
+                  </ProtectedRoute>
+               }
+            />
+            <Route path='*' element={<NotFound />} />
          </Routes>
       </main>
    );

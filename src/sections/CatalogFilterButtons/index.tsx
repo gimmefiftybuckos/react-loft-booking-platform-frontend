@@ -4,7 +4,7 @@ import styles from './index.module.sass';
 
 import { catalogFilters } from '../../services/constants';
 import { getTitleByFilter } from '../../services/utils';
-import { useModalControl } from '../../hooks/useModalControl';
+import useModalControl from '../../hooks/useModalControl';
 
 import {
    SelectionButton,

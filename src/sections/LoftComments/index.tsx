@@ -8,7 +8,7 @@ import { Text } from '../../components/ui/Text';
 import { Button, ButtonVariant } from '../../components/Button';
 import { CommentList } from '../../components/CommentsList';
 import { Stars } from '../../components/Stars';
-import { useModalControl } from '../../hooks/useModalControl';
+import useModalControl from '../../hooks/useModalControl';
 import { ModalTypes } from '../../features/modal/Modal';
 import {
    resetComments,

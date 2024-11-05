@@ -9,13 +9,14 @@ type TextProps = {
    children: ReactNode;
    as?: ElementType;
    dynamic?: boolean;
-   size?: '14' | '16' | '18' | '20' | '24' | '28' | '32' | '36' | '40';
+   size?: '14' | '16' | '18' | '20' | '24' | '28' | '32' | '36' | '40' | '50';
    weight?: 300 | 400 | 500 | 600 | 700 | 800 | 900;
    fontStyle?: 'italic' | 'normal';
    uppercase?: boolean;
    align?: 'center' | 'left';
    color?: 'black' | 'white' | 'gray';
    family?: FontFamiliesClasses;
+   htmlFor?: string;
    className?: string;
 };
 
@@ -30,6 +31,7 @@ export const Text = ({
    align = 'left',
    family = 'inter',
    color = 'black',
+   htmlFor,
    className,
 }: TextProps) => {
    const cl = clsx(
@@ -44,5 +46,9 @@ export const Text = ({
       styles[`${color}`],
       styles.margin
    );
-   return <Tag className={clsx(cl, className)}>{children}</Tag>;
+   return (
+      <Tag htmlFor={htmlFor} className={clsx(cl, className)}>
+         {children}
+      </Tag>
+   );
 };

@@ -11,7 +11,7 @@ import { setDate } from '../../../store/slices/cardCatalog';
 import { Button, ButtonVariant } from '../../../components/Button';
 
 import { todayDate } from '../../../services/constants';
-import { useModalControl } from '../../../hooks/useModalControl';
+import useModalControl from '../../../hooks/useModalControl';
 
 export const Calendar = () => {
    const { closeModal } = useModalControl();

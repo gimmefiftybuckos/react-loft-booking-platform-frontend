@@ -1,13 +1,15 @@
+import { Link } from 'react-router-dom';
+
 import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { Button, ButtonVariant } from '../../../components/Button';
-import { Link } from 'react-router-dom';
-import { useDispatch } from '../../../store';
-import { logoutUser } from '../../../store/slices/userAuth';
-import { useModalControl } from '../../../hooks/useModalControl';
 import { RoutesCatalog } from '../../../types';
+import { useDispatch } from '../../../store';
+
+import useModalControl from '../../../hooks/useModalControl';
+import { logoutUser } from '../../../store/slices/userAuth';
+import { Button, ButtonVariant } from '../../../components/Button';
 
 const menuButtonsData = [
    {
@@ -69,7 +71,7 @@ export const Menu = () => {
          </div>
          <Button
             as={Link}
-            pathTo={RoutesCatalog.NEW_LOFT}
+            pathTo={RoutesCatalog.ADD_LOFT}
             variant={ButtonVariant.ACCENT}
             onClick={onClickDefault}
             className={clsx(styles.button, styles.button_accent)}
