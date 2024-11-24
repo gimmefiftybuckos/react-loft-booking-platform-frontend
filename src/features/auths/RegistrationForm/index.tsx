@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import styles from '../index.module.sass';
 
 import { useAuthForm } from '../hooks/useAuthForm';
-import { useDispatch, useSelector } from '../../../store';
-import { registerUser } from '../../../store/slices/userAuth';
+import { useDispatch, useSelector } from '../../../App/store';
+import { registerUser } from '../../../App/store/slices/userAuth';
 import { initalRegistrInput, validateRegistr } from '../authsUtils';
 
-import { Text } from '../../../components/ui/Text';
-import { Input } from '../../../components/Input';
-import { Button, ButtonVariant } from '../../../components/Button';
-import { capitalLetter } from '../../../services/utils';
-import { RoutesCatalog } from '../../../types';
+import { Text } from '../../../shared/ui/Text';
+import { Input } from '../../../shared/ui/Input';
+import { Button, ButtonVariant } from '../../../shared/ui/Button';
+import { capitalLetter } from '../../../shared/utils/utils.ts';
+import { RoutesCatalog } from '../../../shared/types';
 
 const registrFormValues = ['email', 'login', 'password'] as const;
 

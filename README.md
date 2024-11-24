@@ -1,4 +1,5 @@
-# loft-radar-project
+# loft-radar-project — Fullstack Project
+### [NodeJS backend here](https://github.com/gimmefiftybuckos/express-loft-booking-platform-backend)
 
 ![image](https://github.com/user-attachments/assets/9b495315-7782-4011-83ea-8cee9a5ac05c)
 ![image](https://github.com/user-attachments/assets/386e21c0-64f5-4b74-a703-97a3d3606957)

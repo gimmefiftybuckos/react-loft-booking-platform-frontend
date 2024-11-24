@@ -1,3 +1,3 @@
-import { FavoritesLofts } from '../../sections/FavoritesLofts';
+import { FavoritesLofts } from '../../widgets/FavoritesLofts';
 
 export const Favorites = () => <FavoritesLofts />;

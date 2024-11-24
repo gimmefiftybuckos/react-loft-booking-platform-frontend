@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useSelector } from '../../store';
+import { useSelector } from '../../App/store';
 
-import { CatalogFilterButtons } from '../../sections/CatalogFilterButtons';
-import { CatalogLofts } from '../../sections/CatalogLofts';
+import { CatalogFilterButtons } from '../../widgets/CatalogFilterButtons';
+import { CatalogLofts } from '../../widgets/CatalogLofts';
 
 export const Catalog = () => {
    const { type, date, price } = useSelector((state) => state.cards);

@@ -1,17 +1,17 @@
 import { DayPicker } from 'react-day-picker';
 import { useState } from 'react';
-import { useDispatch } from '../../../store';
+import { useDispatch } from '../../../App/store';
 import 'react-day-picker/dist/style.css';
 import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { setDate } from '../../../store/slices/cardCatalog';
+import { setDate } from '../../../App/store/slices/cardCatalog';
 
-import { Button, ButtonVariant } from '../../../components/Button';
+import { Button, ButtonVariant } from '../../../shared/ui/Button';
 
-import { todayDate } from '../../../services/constants';
-import useModalControl from '../../../hooks/useModalControl';
+import { todayDate } from '../../../shared/types/constants.ts';
+import useModalControl from '../../../shared/hooks/useModalControl';
 
 export const Calendar = () => {
    const { closeModal } = useModalControl();

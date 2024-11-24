@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { Text } from '../../components/ui/Text';
+import { Text } from '../../shared/ui/Text';
 
 export const NotFound = () => {
    return (

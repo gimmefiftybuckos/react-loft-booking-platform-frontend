@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from '../../../store';
+import { useDispatch, useSelector } from '../../../App/store';
 import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { ICardTypes } from '../../../types';
-import { cardLoftTypesList } from '../../../services/constants';
-import { setType } from '../../../store/slices/cardCatalog';
+import { ICardTypes } from '../../../shared/types';
+import { cardLoftTypesList } from '../../../shared/types/constants.ts';
+import { setType } from '../../../App/store/slices/cardCatalog';
 
-import { Button } from '../../../components/Button';
-import useModalControl from '../../../hooks/useModalControl';
+import { Button } from '../../../shared/ui/Button';
+import useModalControl from '../../../shared/hooks/useModalControl';
 
 export const SearchList = () => {
    const dispatch = useDispatch();

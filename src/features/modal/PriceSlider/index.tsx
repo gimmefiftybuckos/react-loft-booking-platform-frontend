@@ -5,13 +5,13 @@ import clsx from 'clsx';
 import 'rc-slider/assets/index.css';
 import styles from './index.module.sass';
 
-import { useDispatch } from '../../../store';
-import { setPrice } from '../../../store/slices/cardCatalog';
-import { MAX_PRICE } from '../../../services/constants';
-import useModalControl from '../../../hooks/useModalControl';
+import { useDispatch } from '../../../App/store';
+import { setPrice } from '../../../App/store/slices/cardCatalog';
+import { MAX_PRICE } from '../../../shared/types/constants.ts';
+import useModalControl from '../../../shared/hooks/useModalControl';
 
-import { Text } from '../../../components/ui/Text';
-import { Button, ButtonVariant } from '../../../components/Button';
+import { Text } from '../../../shared/ui/Text';
+import { Button, ButtonVariant } from '../../../shared/ui/Button';
 
 interface IPriceState {
    min: number;
