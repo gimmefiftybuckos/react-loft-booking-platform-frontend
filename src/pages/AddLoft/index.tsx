@@ -2,8 +2,8 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { AddLoftForm } from '../../components/AddLoftForm';
-import { Text } from '../../components/ui/Text';
+import { AddLoftForm } from '../../shared/ui/AddLoftForm';
+import { Text } from '../../shared/ui/Text';
 
 export const AddLoft = () => {
    return (

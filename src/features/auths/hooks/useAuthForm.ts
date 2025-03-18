@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { useDispatch } from '../../../store';
-import { resetError } from '../../../store/slices/userAuth';
-import useFormValidate from '../../../hooks/useFormValidate';
+import { useDispatch } from '../../../App/store';
+import { resetError } from '../../../App/store/slices/userAuth';
+import useFormValidate from '../../../shared/hooks/useFormValidate';
 
 export const useAuthForm = <T>({
    validate,

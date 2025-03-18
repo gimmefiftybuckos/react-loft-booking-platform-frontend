@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CatalogFiltersType, SelectionFiltersType } from '../../../types';
+import { CatalogFiltersType, SelectionFiltersType } from '../../../shared/types';
 
 import { Calendar } from '../Calendar';
 import { SearchList } from '../SearchList';

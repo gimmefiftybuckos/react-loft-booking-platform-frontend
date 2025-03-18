@@ -4,12 +4,12 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { RoutesCatalog } from '../../../types';
-import { useDispatch } from '../../../store';
+import { RoutesCatalog } from '../../../shared/types';
+import { useDispatch } from '../../../App/store';
 
-import useModalControl from '../../../hooks/useModalControl';
-import { logoutUser } from '../../../store/slices/userAuth';
-import { Button, ButtonVariant } from '../../../components/Button';
+import useModalControl from '../../../shared/hooks/useModalControl';
+import { logoutUser } from '../../../App/store/slices/userAuth';
+import { Button, ButtonVariant } from '../../../shared/ui/Button';
 
 const menuButtonsData = [
    {
@@ -76,7 +76,7 @@ export const Menu = () => {
             onClick={onClickDefault}
             className={clsx(styles.button, styles.button_accent)}
          >
-            <img className={clsx(styles.image)} src='/assets/plus.svg' alt='' />
+            <img className={clsx(styles.image)} src='/src/shared/assets/icons/plus.svg' alt='' />
             Добавить площадку
          </Button>
          <Button

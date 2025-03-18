@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from '../../../store';
-import { RoutesCatalog } from '../../../types';
+import { useSelector } from '../../../App/store';
+import { RoutesCatalog } from '../../../shared/types';
 
 type ProtectedRouteProps = {
    children: React.ReactElement;

@@ -4,17 +4,17 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { useDispatch, useSelector } from '../../store';
-import useModalControl from '../../hooks/useModalControl';
-import { getLoft, resetLoft } from '../../store/slices/cardCatalog';
+import { useDispatch, useSelector } from '../../App/store';
+import useModalControl from '../../shared/hooks/useModalControl';
+import { getLoft, resetLoft } from '../../App/store/slices/cardCatalog';
 
 import { Modal, ModalTypes } from '../../features/modal/Modal';
-import { LoftImages } from '../../sections/LoftImages';
-import { LoftDescription } from '../../sections/LoftDescription';
+import { LoftImages } from '../../widgets/LoftImages';
+import { LoftDescription } from '../../widgets/LoftDescription';
 import { ModalContent } from '../../features/modal/ModalContent';
-import { LoftComments } from '../../sections/LoftComments';
-import { getComments } from '../../store/slices/comments';
-import { Preloader } from '../../components/ui/Preloader';
+import { LoftComments } from '../../widgets/LoftComments';
+import { getComments } from '../../App/store/slices/comments';
+import { Preloader } from '../../shared/ui/Preloader';
 
 export const Loft = () => {
    const dispatch = useDispatch();

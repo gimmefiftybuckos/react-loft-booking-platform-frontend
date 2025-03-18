@@ -3,13 +3,13 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { useDispatch, useSelector } from '../../../store';
+import { useDispatch, useSelector } from '../../../App/store';
 
-import { Text } from '../../../components/ui/Text';
-import { Button, ButtonVariant } from '../../../components/Button';
-import { RatingSelector } from '../../../components/RatingSelector';
-import { setComment, setReview } from '../../../store/slices/comments';
-import useModalControl from '../../../hooks/useModalControl';
+import { Text } from '../../../shared/ui/Text';
+import { Button, ButtonVariant } from '../../../shared/ui/Button';
+import { RatingSelector } from '../../../shared/ui/RatingSelector';
+import { setComment, setReview } from '../../../App/store/slices/comments';
+import useModalControl from '../../../shared/hooks/useModalControl';
 
 export const CommentForm = () => {
    const dispatch = useDispatch();

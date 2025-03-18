@@ -2,12 +2,12 @@ import clsx from 'clsx';
 
 import styles from './index.module.sass';
 
-import { CatalogFiltersType, SelectionFiltersType } from '../../../types';
+import { CatalogFiltersType, SelectionFiltersType } from '../../../shared/types';
 
 import { Modal } from '../Modal';
 import { ModalContent } from '../ModalContent';
-import { Text } from '../../../components/ui/Text';
-import { Arrow } from '../../../components/ui/Arrow';
+import { Text } from '../../../shared/ui/Text';
+import { Arrow } from '../../../shared/ui/Arrow';
 
 type SelectionButtonType = {
    title: SelectionFiltersType | CatalogFiltersType;

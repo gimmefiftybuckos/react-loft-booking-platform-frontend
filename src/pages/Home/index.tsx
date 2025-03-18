@@ -1,11 +1,11 @@
-import { cardLoftTypesList } from '../../services/constants';
+import { cardLoftTypesList } from '../../shared/types/constants.ts';
 
-import { HomeCover } from '../../sections/HomeCover';
-import { HomeBanner } from '../../sections/HomeBanner';
-import { HomeCardBlock } from '../../sections/HomeCardBlocks';
-import { HomeCards } from '../../sections/HomeCards';
-import { useDispatch } from '../../store';
-import { resetFilters } from '../../store/slices/cardCatalog';
+import { HomeCover } from '../../widgets/HomeCover';
+import { HomeBanner } from '../../widgets/HomeBanner';
+import { HomeCardBlock } from '../../widgets/HomeCardBlocks';
+import { HomeCards } from '../../widgets/HomeCards';
+import { useDispatch } from '../../App/store';
+import { resetFilters } from '../../App/store/slices/cardCatalog';
 import { useEffect } from 'react';
 
 export const Home = () => {

@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import { useSelector } from '../../../store';
+import { useSelector } from '../../../App/store';
 
 import styles from './index.module.sass';
 
-import { API_URL } from '../../../services/constants';
-import useModalControl from '../../../hooks/useModalControl';
-import { Preloader } from '../../../components/ui/Preloader';
+import { API_URL } from '../../../shared/types/constants.ts';
+import useModalControl from '../../../shared/hooks/useModalControl';
+import { Preloader } from '../../../shared/ui/Preloader';
 
 export const Images = () => {
    const { card } = useSelector((state) => state.cards);

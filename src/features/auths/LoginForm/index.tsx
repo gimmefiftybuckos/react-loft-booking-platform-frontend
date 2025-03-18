@@ -3,16 +3,16 @@ import clsx from 'clsx';
 
 import styles from '../index.module.sass';
 
-import { loginUser } from '../../../store/slices/userAuth';
-import { useDispatch, useSelector } from '../../../store';
+import { loginUser } from '../../../App/store/slices/userAuth';
+import { useDispatch, useSelector } from '../../../App/store';
 import { initalLoginInput, validateLogin } from '../authsUtils';
 import { useAuthForm } from '../hooks/useAuthForm';
 
-import { Input } from '../../../components/Input';
-import { Button, ButtonVariant } from '../../../components/Button';
-import { Text } from '../../../components/ui/Text';
-import { capitalLetter } from '../../../services/utils';
-import { RoutesCatalog } from '../../../types';
+import { Input } from '../../../shared/ui/Input';
+import { Button, ButtonVariant } from '../../../shared/ui/Button';
+import { Text } from '../../../shared/ui/Text';
+import { capitalLetter } from '../../../shared/utils/utils.ts';
+import { RoutesCatalog } from '../../../shared/types';
 
 const loginFormValues = ['login', 'password'] as const;
 
